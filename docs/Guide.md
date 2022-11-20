@@ -19,7 +19,7 @@ While in Azure you will need to provision the following to your account:
 1. Microsoft SQL Server Database with the following tables and columns:
 - ![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
 2. Azure Service Bus with a queue named main
-3. Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: https://github.com/MetaboyNft/MetaboyApi. Under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
+3. Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: https://github.com/MetaboyNft/MetaboyApi. You may need to delete the "github/workflows" folder first. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
 
  ## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: https://github.com/MetaboyNft/MetaboyApiMessageProcessor
