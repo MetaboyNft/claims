@@ -41,4 +41,4 @@ While in Azure you will need to provision the following to your account:
   }
 }
 ```
-4. While in Visual Studio 2022, publish the solution as a Continuous WebJob a Windows App Service Plan. 
+4. While in Visual Studio 2022, publish the solution as a Continuous WebJob under a Windows App Service Plan. 
