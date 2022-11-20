@@ -24,7 +24,7 @@ While in Azure you will need to provision the following to your account:
  ## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: https://github.com/MetaboyNft/MetaboyApiMessageProcessor
 2. Open up the solution file in Visual Studio 2022. 
-3. While in Visual Studio 2022, create an appsettings.json file in the root directory with the build action "Copy if Newer". It needs these details below, you can export out the Loopring details from Loopring.io, all Loopring details must come from a MetaMask or GameStop wallet:
+3. While in Visual Studio 2022, create an appsettings.json file in the root directory with the build action "Copy if Newer". It needs these details below, you can export out the Loopring details from Loopring.io, all Loopring details must come from a MetaMask or GameStop wallet. Use the same settings as previous for the AzureServiceBusConnectionString and AzureSqlConnectionString:
 ```json
 {
   "Settings": {
