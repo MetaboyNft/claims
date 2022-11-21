@@ -10,6 +10,9 @@ This is the documentation guide on how to setup the MetaBoy claims system. You w
 - GitHub forking
 - Loopring API
 
+# Architecture
+![MetaBoy NFT Claims Diagram Final](https://user-images.githubusercontent.com/5258063/202937562-18206f04-e11f-4e16-94bf-2e9b6116c680.png)
+
 ## 1. Sign up for Azure
 If you don't have an Azure account, please sign up for one here: https://azure.microsoft.com/
 
