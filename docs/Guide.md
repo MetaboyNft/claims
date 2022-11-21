@@ -16,7 +16,7 @@ If you don't have an Azure account, please sign up for one here: https://azure.m
 ## 2. Provision the Azure resources
 While in Azure you will need to provision the following to your account:
 
-1. Microsoft SQL Server Database with the following tables and columns:
+1. Microsoft SQL Server Database with the following tables and columns.The allow list table contains data about address and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId:
 - ![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
 2. Azure Service Bus with a queue named main
 3. Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: https://github.com/MetaboyNft/MetaboyApi. You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
