@@ -21,7 +21,7 @@ While in Azure you will need to provision the following to your account:
 2. Azure Service Bus with a queue named main
 3. Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: https://github.com/MetaboyNft/MetaboyApi. You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
 
- ## 3. Setting up the MetaBoy API Message Processor:
+## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: [https://github.com/MetaboyNft/MetaboyApiMessageProcessor](https://github.com/MetaboyNft/MetaboyApiMessageProcessor)
 2. Open up the solution file in Visual Studio 2022. 
 3. While in Visual Studio 2022, create an appsettings.json file in the root directory with the build action "Copy to Output Directory" option set to "Copy always". It needs these details below, you can export out the Loopring details from Loopring.io, all Loopring details must come from a MetaMask or GameStop wallet. Use the same settings as previous for the AzureServiceBusConnectionString and AzureSqlConnectionString:
