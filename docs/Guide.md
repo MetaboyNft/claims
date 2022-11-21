@@ -20,8 +20,8 @@ If you don't have an Azure account, please sign up for one here: https://azure.m
 ## 2. Provision the Azure resources
 While in Azure you will need to provision the following to your account:
 
-### 2.1. Microsoft SQL Server Database with the following tables and columns.
-Provision a Microsoft SQL Server Databasew with the following tables.
+### 2.1. Microsoft SQL Server Database
+Provision a Microsoft SQL Server Database with the following tables.
 - ![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
 
 The SQL statements for table creation are as followings
@@ -45,7 +45,7 @@ CREATE TABLE AllowList (
     Amount varchar(255)
 );
 ```
-The allow list table contains data about loopring addresses and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId. All addresses need to be in hex format(0xblahblah) and not be an ENS:
+The allow list table contains data about loopring addresses and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId. All addresses need to be in hex format(0xblahblah) and not be an ENS.
 
 ### 2.2 Azure Service Bus
 Provision an Azure Service Bus with a queue named main .
@@ -123,12 +123,12 @@ This command removes an address that has recieved a claim
 # Bulk operations for claims
 If you need to do operations in bulk, you can use raw SQL commands to add bulk addresses to the allow list table in the database.
 
-Example for adding a claimable nft(should only need to add once):
+1. Adding a claimable nft(should only need to add once):
 ```sql
 insert into claimable (NftName,NftData) Values ('MetaBoy #9987','0x09c3a263e3cb7e893af1fe73b0cc373850f942842c92560bef6016c2711d5ca0');
 ```
 
-Example bulk addresses for allow list: 
+2. Adding bulk addresses for allow list: 
 
 ```sql
 insert into allowlist (Address,NftData,Amount) Values ('0x9Da766D34E5df44A1113ca3A38C4DBf400a37ceA','0x09c3a263e3cb7e893af1fe73b0cc373850f942842c92560bef6016c2711d5ca0','1');
