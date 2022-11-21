@@ -47,7 +47,7 @@ While in Azure you will need to provision the following to your account:
 1. You need to create a Discord Bot through the Discord Developer Portal with the following permissions and invite it to your Discord.(Be sure to save all neccessary tokens for future steps)
 ![image](https://user-images.githubusercontent.com/5258063/202933785-d37aee16-6e17-4031-9aeb-aec8dfe9a2fd.png)
 2. Fork the following repo: https://github.com/fudgebucket27/FroggieBot/tree/Metabee 
-3. Open the solution file in Visual Studio 2022, create an appsettings.json file in the solution directory like below with the "Copy to Output Directory" option set to "Copy always". Use the same service bus and sql server connection strings as previous steps.
+3. Open the solution file in Visual Studio 2022, create an appsettings.json file in the solution directory like below with the build action "Copy to Output Directory" option set to "Copy always". Use the same sql server connection strings as previous steps.
 ```json
 {
   "Settings": {
