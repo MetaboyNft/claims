@@ -25,7 +25,8 @@ While in Azure you will need to provision the following to your account:
 
 ### 2.1. Microsoft SQL Server Database
 Provision a Microsoft SQL Server Database with the following tables.
-- ![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
+
+![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
 
 The SQL statements for table creation are as followings
 
