@@ -15,7 +15,7 @@ This is the documentation guide on how to setup the MetaBoy claims system. You w
 
 
 ## 1. Sign up for Azure
-If you don't have an Azure account, please sign up for one here: https://azure.microsoft.com/
+If you don't have an Azure account, please sign up for one here: [https://azure.microsoft.com](https://azure.microsoft.com)
 
 ## 2. Provision the Azure resources
 While in Azure you will need to provision the following to your account:
