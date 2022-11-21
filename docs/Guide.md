@@ -59,3 +59,34 @@ While in Azure you will need to provision the following to your account:
 ```
 4. You will need to modify the Slash Commands: https://github.com/fudgebucket27/FroggieBot/blob/Metabee/FroggieBot/SlashCommands.cs with your own discord server channel ids where you want the slash commands to run. There are MetaBoy Discord server specific slash commands you may need to remove. All of the claim related commands are contained within the following lines https://github.com/fudgebucket27/FroggieBot/blob/Metabee/FroggieBot/SlashCommands.cs#L903-L1534 . The channel ids for these claim specific admin commands need to be modified with your own discord server channel ids.
 5. Once the bot has been modified for your needs, publish the solution using Visual Studio as a Continuous WebJob to the same Windows App Service Plan that was setup previously.
+
+# Discord bot slash commands
+
+## /claimable_add
+This command adds an NFT that can be claimed by addresses in the allow list. You must use the nftData attribute from the Loopring API. The nftData attribute is not the same as the nftId.
+
+## /claimable_show
+This command shows all NFTs that can be claimed.
+
+## /claimable_remove
+This command removes NFTs that can be claimed.
+
+## /allowlist_add
+This command adds addresses to the allow list that can claim the claimable nfts
+
+## /allowlist_remove
+This command removes addresses from the allow list.
+
+## /allowlist_check
+This command checks if addresses are in the allow list.
+
+## /claimed_check
+This command checks if an address has recieved a claim
+
+## /claimed_remove
+This command removes an address that has recieved a claim
+
+## Bulk operations
+If you need to do operations in bulk, you can use raw SQL commands to add bulk address to the allow list table in the database.
+
+
