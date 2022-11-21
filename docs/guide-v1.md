@@ -79,7 +79,7 @@ Provision a Basic Windows App Service Plan for .NET 6 with source control for th
   }
 }
 ```
-4. While in Visual Studio 2022, publish the solution as a Continuous WebJob under a Windows App Service Plan.
+4. While in Visual Studio 2022, publish the solution as a Continuous WebJob under the same Windows App Service Plan that was setup previously.
 
 ## 4. Setting up the Discord Bot
 1. You need to create a Discord Bot through the Discord Developer Portal with the following permissions and invite it to your Discord.(Be sure to save all neccessary tokens for future steps)
