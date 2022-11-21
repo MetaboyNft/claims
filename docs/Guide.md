@@ -16,6 +16,7 @@ This is the documentation guide on how to setup the MetaBoy claims system. You w
 ## Why a message queue is used
 NFT Transfers on Loopring rely on the Storage Id being processed in the correct order, if operations are done in parallel the storage id wont be correct. A storage id is always +2 from the previous one. The Azure Service Bus allows us to process messages one at a time which allows for the correct storage id to be computed.
 
+# Setup
 ## 1. Sign up for Azure
 If you don't have an Azure account, please sign up for one here: [https://azure.microsoft.com](https://azure.microsoft.com)
 
@@ -48,6 +49,9 @@ CREATE TABLE Claimed (
 );
 ```
 The allow list table contains data about loopring addresses and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId. All addresses need to be in hex format(0xblahblah) and not be an ENS.
+
+#### Retrieving nftData
+To retrieve nftData you must query the Loopring api. Once you have an API key for Loopring you can send a GET request to the following endpoint(replacing account id with the distributon wallet account id you will be using), [https://api3.loopring.io/api/v3/user/nft/balances?accountId=191813&limit=50&metadata=true&offset=0](https://api3.loopring.io/api/v3/user/nft/balances?accountId=191813&limit=50&metadata=true&offset=0)
 
 ### 2.2 Azure Service Bus
 Provision an Azure Service Bus with a queue named main .
