@@ -56,8 +56,8 @@ To retrieve nftData you must query the Loopring api. Once you have an API key fo
 ### 2.2 Azure Service Bus
 Provision an Azure Service Bus with a queue named main .
 
-### 2.3 Linux App Service Plan
-Provision a Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: [https://github.com/MetaboyNft/MetaboyApi](https://github.com/MetaboyNft/MetaboyApi). You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
+### 2.3 Windows App Service Plan
+Provision a Basic Windows App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: [https://github.com/MetaboyNft/MetaboyApi](https://github.com/MetaboyNft/MetaboyApi). You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
 
 ## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: [https://github.com/MetaboyNft/MetaboyApiMessageProcessor](https://github.com/MetaboyNft/MetaboyApiMessageProcessor)
