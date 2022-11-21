@@ -24,7 +24,7 @@ While in Azure you will need to provision the following to your account:
  ## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: https://github.com/MetaboyNft/MetaboyApiMessageProcessor
 2. Open up the solution file in Visual Studio 2022. 
-3. While in Visual Studio 2022, create an appsettings.json file in the root directory with the build action "Copy if Newer". It needs these details below, you can export out the Loopring details from Loopring.io, all Loopring details must come from a MetaMask or GameStop wallet. Use the same settings as previous for the AzureServiceBusConnectionString and AzureSqlConnectionString:
+3. While in Visual Studio 2022, create an appsettings.json file in the root directory with the build action "Copy to Output Directory" option set to "Copy always". It needs these details below, you can export out the Loopring details from Loopring.io, all Loopring details must come from a MetaMask or GameStop wallet. Use the same settings as previous for the AzureServiceBusConnectionString and AzureSqlConnectionString:
 ```json
 {
   "Settings": {
@@ -41,4 +41,21 @@ While in Azure you will need to provision the following to your account:
   }
 }
 ```
-4. While in Visual Studio 2022, publish the solution as a Continuous WebJob under a Windows App Service Plan. 
+4. While in Visual Studio 2022, publish the solution as a Continuous WebJob under a Windows App Service Plan.
+
+## 4. Setting up the Discord Bot
+1. You need to create a Discord Bot through the Discord Developer Portal with the following permissions and invite it to your Discord.(Be sure to save all neccessary tokens for future steps)
+![image](https://user-images.githubusercontent.com/5258063/202933785-d37aee16-6e17-4031-9aeb-aec8dfe9a2fd.png)
+2. Fork the following repo: https://github.com/fudgebucket27/FroggieBot/tree/Metabee 
+3. Open the solution file in Visual Studio 2022, create an appsettings.json file in the solution directory like below with the "Copy to Output Directory" option set to "Copy always". Use the same service bus and sql server connection strings as previous steps.
+```json
+{
+  "Settings": {
+    "SqlServerConnectionString": "", //SqlServer Connection String. DO NOT SHARE
+    "DiscordServerId": 9, //Your Discord server ID
+    "DiscordToken": "" //Token for your Discord Server. DO NOT SHARE
+  }
+}
+```
+4. You will need to modify the Slash Commands: https://github.com/fudgebucket27/FroggieBot/blob/Metabee/FroggieBot/SlashCommands.cs with your own discord server channel ids where you want the slash commands to run. There are MetaBoy Discord server specific slash commands you may need to remove. All of the claim related commands are contained within the following lines https://github.com/fudgebucket27/FroggieBot/blob/Metabee/FroggieBot/SlashCommands.cs#L903-L1534 . The channel ids for these claim specific admin commands need to be modified with your own discord server channel ids.
+5. Once the bot has been modified for your needs, publish the solution using Visual Studio as a Continuous WebJob to the same Windows App Service Plan that was setup previously.
