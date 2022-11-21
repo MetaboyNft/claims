@@ -1,5 +1,5 @@
 # Introduction
-This is the documentation guide on how to setup the MetaBoy claims system. You will need experience with the following for a successful deployment:
+This is the documentation guide on how to setup the MetaBoy claims system. This pertains to V1 of the system. You will need experience with the following for a successful deployment:
 
 - Azure
 - .NET 6
