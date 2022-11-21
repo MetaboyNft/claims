@@ -11,7 +11,8 @@ This is the documentation guide on how to setup the MetaBoy claims system. You w
 - Loopring API
 
 # Architecture
-![MetaBoy NFT Claims Diagram Final](https://user-images.githubusercontent.com/5258063/202937562-18206f04-e11f-4e16-94bf-2e9b6116c680.png)
+![MetaBoy NFT Claims Diagram Final 2](https://user-images.githubusercontent.com/5258063/202937688-82a7cc3c-5916-429d-ba71-0ffaa6427627.png)
+
 
 ## 1. Sign up for Azure
 If you don't have an Azure account, please sign up for one here: https://azure.microsoft.com/
@@ -64,6 +65,8 @@ While in Azure you will need to provision the following to your account:
 5. Once the bot has been modified for your needs, publish the solution using Visual Studio as a Continuous WebJob to the same Windows App Service Plan that was setup previously.
 
 # Discord bot slash commands
+## /claim
+This commands checks for claims with the address provided. If valid it will contact the API to process the claim into the message queue.
 
 ## /claimable_add
 This command adds an NFT that can be claimed by addresses in the allow list. You must use the nftData attribute from the Loopring API. The nftData attribute is not the same as the nftId.
