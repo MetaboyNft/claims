@@ -20,10 +20,38 @@ If you don't have an Azure account, please sign up for one here: https://azure.m
 ## 2. Provision the Azure resources
 While in Azure you will need to provision the following to your account:
 
-1. Microsoft SQL Server Database with the following tables and columns.The allow list table contains data about loopring addresses and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId. All addresses need to be in hex format(0xblahblah) and not be an ENS:
+### 2.1. Microsoft SQL Server Database with the following tables and columns.
+Provision a Microsoft SQL Server Databasew with the following tables.
 - ![image](https://user-images.githubusercontent.com/5258063/202931174-3af41ea3-cdca-4143-b0a4-c735915e5fe1.png)
-2. Azure Service Bus with a queue named main
-3. Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: [https://github.com/MetaboyNft/MetaboyApi](https://github.com/MetaboyNft/MetaboyApi). You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
+
+The SQL statements for table creation are as followings
+
+```sql
+CREATE TABLE AllowList (
+    Address varchar(255),
+    NftData varchar(255),
+    Amount varchar(255)
+);
+
+CREATE TABLE Claimable (
+    NftName varchar(255),
+    NftData varchar(255),
+);
+
+CREATE TABLE AllowList (
+    Address varchar(255),
+    NftData varchar(255),
+    ClaimedDate varchar(255),
+    Amount varchar(255)
+);
+```
+The allow list table contains data about loopring addresses and nfts that can be claimed, the claimable table contains data about nfts that can be claimed, the claimed table contains data about successful claims. The nftData can be obtained from the Loopring API and is not the same as the nftId. All addresses need to be in hex format(0xblahblah) and not be an ENS:
+
+### 2.2 Azure Service Bus
+Provision an Azure Service Bus with a queue named main .
+
+### 2.3 Linux App Service Plan
+Provision a Linux App Service Plan for .NET 6 with source control for the deployment pointing to a fork of the MetaBoy API repo: [https://github.com/MetaboyNft/MetaboyApi](https://github.com/MetaboyNft/MetaboyApi). You may need to delete the "github/workflows" folder first after forking the repo. Then once deployed, under the configuration section of the deployment, set up two AppSetting configuration variables, one named AzureSqlConnectionString and one named AzureServiceBusConnectionString that correspond with the SQL server and Azure Service Bus connection string you setup previously.
 
 ## 3. Setting up the MetaBoy API Message Processor:
 1. Fork the MetaBoy API Message Processor: [https://github.com/MetaboyNft/MetaboyApiMessageProcessor](https://github.com/MetaboyNft/MetaboyApiMessageProcessor)
@@ -92,7 +120,18 @@ This command checks if an address has recieved a claim
 ## /claimed_remove
 This command removes an address that has recieved a claim
 
-## Bulk operations
-If you need to do operations in bulk, you can use raw SQL commands to add bulk address to the allow list table in the database.
+# Bulk operations for claims
+If you need to do operations in bulk, you can use raw SQL commands to add bulk addresses to the allow list table in the database.
 
+Example for adding a claimable nft(should only need to add once):
+```sql
+insert into claimable (NftName,NftData) Values ('MetaBoy #9987','0x09c3a263e3cb7e893af1fe73b0cc373850f942842c92560bef6016c2711d5ca0');
+```
+
+Example bulk addresses for allow list: 
+
+```sql
+insert into allowlist (Address,NftData,Amount) Values ('0x9Da766D34E5df44A1113ca3A38C4DBf400a37ceA','0x09c3a263e3cb7e893af1fe73b0cc373850f942842c92560bef6016c2711d5ca0','1');
+insert into allowlist (Address,NftData,Amount) Values ('0x36Cd6b3b9329c04df55d55D41C257a5fdD387ACd','0x09c3a263e3cb7e893af1fe73b0cc373850f942842c92560bef6016c2711d5ca0','1');
+```
 
