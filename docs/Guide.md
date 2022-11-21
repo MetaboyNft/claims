@@ -96,7 +96,7 @@ Provision a Linux App Service Plan for .NET 6 with source control for the deploy
 
 # Discord bot slash commands
 ## /claim
-This commands checks for claims with the address provided. If valid it will contact the API to process the claim into the message queue.
+This command checks for claims with the address provided. If valid it will contact the API to process the claim into the message queue.
 
 ## /claimable_add
 This command adds an NFT that can be claimed by addresses in the allow list. You must use the nftData attribute from the Loopring API. The nftData attribute is not the same as the nftId.
