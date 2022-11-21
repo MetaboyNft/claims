@@ -32,7 +32,7 @@ While in Azure you will need to provision the following to your account:
 ```json
 {
   "Settings": {
-    "LoopringApiKey": ", //Your loopring api key.  DO NOT SHARE THIS AT ALL.
+    "LoopringApiKey": "", //Your loopring api key.  DO NOT SHARE THIS AT ALL.
     "LoopringPrivateKey": "", //Your loopring private key.  DO NOT SHARE THIS AT ALL.
     "LoopringAddress": "", //Your loopring address. NOT YOUR ENS
     "LoopringAccountId": 191813, //Your loopring account id
