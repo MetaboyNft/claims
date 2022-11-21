@@ -38,7 +38,7 @@ CREATE TABLE Claimable (
     NftData varchar(255),
 );
 
-CREATE TABLE AllowList (
+CREATE TABLE Claimed (
     Address varchar(255),
     NftData varchar(255),
     ClaimedDate varchar(255),
