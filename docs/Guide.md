@@ -13,6 +13,8 @@ This is the documentation guide on how to setup the MetaBoy claims system. You w
 # Architecture
 ![MetaBoy NFT Claims Diagram Final 2](https://user-images.githubusercontent.com/5258063/202937688-82a7cc3c-5916-429d-ba71-0ffaa6427627.png)
 
+## Why a message queue is used
+NFT Transfers on Loopring rely on the Storage Id being processed in the correct order, if operations are done in parallel the storage id wont be correct. A storage id is always +2 from the previous one. The Azure Service Bus allows us to process messages one at a time which allows for the correct storage id to be computed.
 
 ## 1. Sign up for Azure
 If you don't have an Azure account, please sign up for one here: [https://azure.microsoft.com](https://azure.microsoft.com)
