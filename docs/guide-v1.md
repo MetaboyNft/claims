@@ -67,6 +67,7 @@ Provision a Basic Linux App Service Plan for .NET 6 with source control for the 
 ```json
 {
   "Settings": {
+    "TransferMemo" :  "<3 MetaBoy",
     "LoopringApiKey": "", //Your loopring api key.  DO NOT SHARE THIS AT ALL.
     "LoopringPrivateKey": "", //Your loopring private key.  DO NOT SHARE THIS AT ALL.
     "LoopringAddress": "", //Your loopring address. NOT YOUR ENS
