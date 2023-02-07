@@ -43,6 +43,7 @@ CREATE TABLE Claimable (
 );
 
 CREATE TABLE Claimed (
+    Id int IDENTITY(1,1) PRIMARY KEY,
     Address varchar(255),
     NftData varchar(255),
     ClaimedDate varchar(255),
